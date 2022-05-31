@@ -9,7 +9,8 @@ export async function upload_buffer(buf: Buffer | string) {
 
 export async function createDirectoryListing(
 	dir: string,
-	opts: Options
+	opts: Options,
+	throw_errors: boolean = false
 ): Promise<string | Buffer> {
 	try {
 		const list = await fs.promises.readdir(dir);
@@ -21,7 +22,7 @@ export async function createDirectoryListing(
 					ret.push(`<li>${fullpath} was excluded.</li>`);
 				} else {
 					const stat = await fs.promises.stat(fullpath);
-					const hash = await upload(fullpath, opts);
+					const hash = await upload(fullpath, opts, true);
 					const parts = path.parse(fullpath);
 
 					if (stat.isDirectory()) {
@@ -35,20 +36,27 @@ export async function createDirectoryListing(
 					}
 				}
 			} catch (error) {
-				ret.push(`<li>Unable to access ${i}</li>`);
+				ret.push(`<li>${i} was inaccessible.</li>`);
 			}
 		}
 		return (
-			`<h1>Index of ${path.basename(dir)}</h1><ul>` + ret.join('\n') + '</ul>'
+			`<h1>Index of ${path.basename(dir)}</h1><ul>` +
+			ret.join('\n') +
+			'</ul>'
 		);
 	} catch (error) {
-		return String(error);
+		if (throw_errors) {
+			throw error;
+		} else {
+			return String(error);
+		}
 	}
 }
 
 export async function upload_logic(
 	file: string,
-	opts: Options
+	opts: Options,
+	throw_errors: boolean = false
 ): Promise<string | Buffer> {
 	try {
 		if (file.match(opts.exclude)) {
@@ -58,15 +66,23 @@ export async function upload_logic(
 		if (stat.isFile()) {
 			return fs.promises.readFile(file);
 		} else if (stat.isDirectory()) {
-			return createDirectoryListing(file, opts);
+			return createDirectoryListing(file, opts, throw_errors);
 		} else {
 			return `${file} is not readable.`;
 		}
 	} catch (error) {
-		return String(error);
+		if (throw_errors) {
+			throw error;
+		} else {
+			return String(error);
+		}
 	}
 }
 
-export async function upload(file: string, opts: Options) {
-	return upload_buffer(await upload_logic(file, opts));
+export async function upload(
+	file: string,
+	opts: Options,
+	throw_errors: boolean = false
+) {
+	return upload_buffer(await upload_logic(file, opts, throw_errors));
 }
