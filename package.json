@@ -1,0 +1,21 @@
+{
+	"name": "nodesite-cdn",
+	"version": "0.1.0-1",
+	"main": "lib/index.js",
+	"bin": {
+		"nodesite-cdn": "lib/cli.js"
+	},
+	"scripts": {
+		"start": "node lib/cli",
+		"test": "npx nslibmgr test"
+	},
+	"author": "Prokop Schield",
+	"devDependencies": {
+		"@types/node": ">=14"
+	},
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"@prokopschield/argv": "^0.1.0-2",
+		"nsblob": "^0.2.10"
+	}
+}
