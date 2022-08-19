@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@lvksh/logger/-/logger-1.5.2.tgz#4bdf255edf008a4e746596f1e574b77807c629fb"
   integrity sha512-BpzPz2y0K4y/u8yeOIwYKrsRgRJmPsA7RLdllLJ8kMes7up8o/xKf+9LKHul4uvZYd4xR4YoK+3MYDGwEMTOBg==
 
-"@prokopschield/argv@^0.1.0-2":
-  version "0.1.0-2"
-  resolved "https://registry.yarnpkg.com/@prokopschield/argv/-/argv-0.1.0-2.tgz#dcbf24bff803b6138133fee0afe43815709550b8"
-  integrity sha512-PTf2OgAk5jHq2SjqfxF+EQydh27qciuN9mcf+1oU958m99K9eCYKxCjuOgvEHDdUZL/8w/+suwoNArH4UKsizw==
+"@prokopschield/argv@^0.1.0-2", "@prokopschield/argv@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@prokopschield/argv/-/argv-0.1.1.tgz#332c46b6bdf5bbd10a96330260867fdbbe8eb746"
+  integrity sha512-JiE/wB6zxgo07fCgF7sVFKQFojCvRk+t0aGBhTpDUgytPPVm90yHbKRia2DS7WeSPdNTNgb+oanGdP5OuW3yxg==
 
 "@types/component-emitter@^1.2.10":
   version "1.2.11"
@@ -32,10 +32,12 @@ base64-arraybuffer@0.1.4:
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.4.tgz#9818c79e059b1355f97e0428a017c838e90ba812"
   integrity sha512-a1eIFi4R9ySrbiMuyTGx5e92uRH5tQY6kArNcFaKBUleIoLjdjBg7Zxm3Mqm3Kmkf27HLR/1fnxX9q8GQ7Iavg==
 
-blakets@^0.1.4:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/blakets/-/blakets-0.1.11.tgz#ae8bf188a6133e87896ca5c3063e488262446cad"
-  integrity sha512-E53VLgrsLzqGU/MbK2OajCTxnhekHv8oNZUteVgfdvMFg4HePJ05hTcuVbLs6sBVDD31tS6kc1hOdxI13WJyKw==
+blakets@^0.1.12-1:
+  version "0.1.12-1"
+  resolved "https://registry.yarnpkg.com/blakets/-/blakets-0.1.12-1.tgz#d330c6fe5fbc0fa73eaecd6f8508a665f2f89bb2"
+  integrity sha512-ahUXQbMgUZN4ZW/k+bgfR2GnXCXdldTq54IGeRqsb5g+xCtTuCPvHEELT5gTgJ9IkJdDaaIH4vvJgc+g5d/nSA==
+  dependencies:
+    "@prokopschield/argv" "^0.1.0-2"
 
 component-emitter@~1.3.0:
   version "1.3.0"
@@ -49,10 +51,10 @@ debug@~4.3.1:
   dependencies:
     ms "2.1.2"
 
-doge-config@^0.3.13:
-  version "0.3.18"
-  resolved "https://registry.yarnpkg.com/doge-config/-/doge-config-0.3.18.tgz#3879bba003ff9e2922e680f2e34dc4957b1401eb"
-  integrity sha512-VxTRVBNJDjpVrui+8YZ/wLASGaxqS/GyZYiWWgVnDDicqTtOZVmAAUlcdrHpDoleMs35ULUgEkpl0TA5rMJKpQ==
+doge-config@^0.3.19:
+  version "0.3.19"
+  resolved "https://registry.yarnpkg.com/doge-config/-/doge-config-0.3.19.tgz#4d329681adc69f8165798106f21343f7f0fe92a6"
+  integrity sha512-QfLDbG4ul3rgiF1Utrxr6KHeXfEf+Jck+sODEobrK7Zi7kD6ulFSGOHy7/3gUjSl64f67cK0d07zsCyAqoeWDQ==
   dependencies:
     doge-json "^1.2.8"
 
@@ -94,23 +96,23 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-nodesite.eu-core@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/nodesite.eu-core/-/nodesite.eu-core-1.3.0.tgz#6864eb4fa369678a72f38f3abd259c8bf155271a"
-  integrity sha512-1Siim/Qo5yfcEcg5xvaVw8TDAZEMcdibNxeRXwAEx43OPVjJ9KGUGx3+tKT2vg7H1/46waQjPbsJgb8DG+8xAQ==
+nodesite.eu-core@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/nodesite.eu-core/-/nodesite.eu-core-1.3.1.tgz#fff33037e4d4416b419f58e3e11221e6267f7792"
+  integrity sha512-ATEXEbweleyYQw3b4iFv2aCAtGT4D26Mdjd50ZU0Jjte1IoP4TARpyRlcL6bUqV/VMs8riGtH4AtqqscukFI7A==
   dependencies:
     "@lvksh/logger" "1.5.2"
     socket.io-client "^3.1.3"
 
-nsblob@^0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/nsblob/-/nsblob-0.2.10.tgz#93084f17c6f49e41801c7e15a6fdc7477638cd13"
-  integrity sha512-oFaJYU/698INEMoozIh1fm3MQKnmp2tjEtjeAXMkvKRv7sDprniCbH91px0Mp0bE7JsttVtLl+9Hrd7/jYAHyw==
+nsblob@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/nsblob/-/nsblob-0.2.14.tgz#a79a9ccf84d05e0858f4fbf5552c263b8864f308"
+  integrity sha512-3VI9x/RNshlQEYKaKsf/L+CzxTMJnPm9uJy+XHpfYuk6C6vgQIwdvy/JzSan8TEHku3p3wSFzhR6Tp7WJj6Csw==
   dependencies:
-    blakets "^0.1.4"
-    doge-config "^0.3.13"
-    nodesite.eu-core "^1.2.0"
-    serial-async-io "^0.3.0"
+    blakets "^0.1.12-1"
+    doge-config "^0.3.19"
+    nodesite.eu-core "^1.3.1"
+    serial-async-io "^0.3.2"
 
 parseqs@0.0.6:
   version "0.0.6"
@@ -122,7 +124,7 @@ parseuri@0.0.6:
   resolved "https://registry.yarnpkg.com/parseuri/-/parseuri-0.0.6.tgz#e1496e829e3ac2ff47f39a4dd044b32823c4a25a"
   integrity sha512-AUjen8sAkGgao7UyCX6Ahv0gIK2fABKmYjvP4xmy5JaKvcbTRueIqIPHLAfq30xJddqSE033IOMUSOMCcK3Sow==
 
-serial-async-io@^0.3.0:
+serial-async-io@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/serial-async-io/-/serial-async-io-0.3.2.tgz#0fbcfdbbdcd093caefd44f9cb0b68ea7d6167863"
   integrity sha512-Uk3xSDyiLTCAdPjzNWU5bHk6MqRj4cUi/MqD2lPSg9k/PfJpZzpA+yEgWEIWH3SiWtjUc1eDc4T/iNbBiZ0DNQ==

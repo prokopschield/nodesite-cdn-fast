@@ -1,6 +1,6 @@
 {
 	"name": "nodesite-cdn",
-	"version": "0.1.0-3",
+	"version": "0.1.0",
 	"main": "lib/index.js",
 	"bin": {
 		"nodesite-cdn": "lib/cli.js"
@@ -15,7 +15,7 @@
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
-		"@prokopschield/argv": "^0.1.0-2",
-		"nsblob": "^0.2.10"
+		"@prokopschield/argv": "^0.1.1",
+		"nsblob": "^0.2.14"
 	}
 }

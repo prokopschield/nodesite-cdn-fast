@@ -18,7 +18,7 @@ async function main() {
 	switch (command) {
 		case 'upload': {
 			for (const file of argv.ordered) {
-				console.log(await upload(file, opts));
+				console.log(await upload(path.resolve(file), opts));
 			}
 			return 0;
 		}
