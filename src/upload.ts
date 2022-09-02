@@ -39,11 +39,14 @@ export async function createDirectoryListing(
 				ret.push(`<li>${i} was inaccessible.</li>`);
 			}
 		}
-		return (
-			`<h1>Index of ${path.basename(dir)}</h1><ul>` +
-			ret.join('\n') +
-			'</ul>'
-		);
+
+		return [
+			`<h1>Index of ${path.basename(dir)}</h1>`,
+			'<ul>',
+			...ret,
+			'</ul>',
+			'',
+		].join('\n');
 	} catch (error) {
 		if (throw_errors) {
 			throw error;
