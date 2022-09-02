@@ -11,7 +11,7 @@
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
-		"@prokopschield/argv": "^0.1.1",
-		"nsblob": "^0.2.14"
+		"@prokopschield/argv": "^0.1.2",
+		"nsblob": "^0.2.15"
 	}
 }
