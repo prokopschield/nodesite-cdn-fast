@@ -5,10 +5,6 @@
 	"bin": {
 		"nodesite-cdn": "lib/cli.js"
 	},
-	"scripts": {
-		"start": "node lib/cli",
-		"test": "npx nslibmgr test"
-	},
 	"author": "Prokop Schield",
 	"devDependencies": {
 		"@types/node": ">=14"
