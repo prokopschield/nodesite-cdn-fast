@@ -2,6 +2,7 @@
 
 import argv from '@prokopschield/argv';
 import fs from 'fs';
+import nsblob from 'nsblob';
 import path from 'path';
 
 import { upload, download, Options } from '.';
@@ -71,4 +72,4 @@ async function main() {
 	}
 }
 
-main().then(process.exit);
+main().then(() => nsblob.socket.close());
