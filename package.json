@@ -6,12 +6,25 @@
 		"nodesite-cdn": "lib/cli.js"
 	},
 	"author": "Prokop Schield",
+	"dependencies": {
+		"@prokopschield/argv": "^0.1.2",
+		"nsblob": "^0.2.15"
+	},
 	"devDependencies": {
 		"@types/node": ">=14"
 	},
 	"license": "GPL-3.0-or-later",
-	"dependencies": {
-		"@prokopschield/argv": "^0.1.2",
-		"nsblob": "^0.2.15"
-	}
+	"types": "./lib/index.d.ts",
+	"directories": {
+		"lib": "lib"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/prokopschield/nodesite-cdn.git"
+	},
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/prokopschield/nodesite-cdn/issues"
+	},
+	"homepage": "https://github.com/prokopschield/nodesite-cdn#readme"
 }
