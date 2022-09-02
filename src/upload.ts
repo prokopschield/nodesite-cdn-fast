@@ -42,8 +42,9 @@ export async function createDirectoryListing(
 
 		return [
 			`<h1>Index of ${path.basename(dir)}</h1>`,
+			'',
 			'<ul>',
-			...ret,
+			...ret.map((li) => `\t${li}`),
 			'</ul>',
 			'',
 		].join('\n');
