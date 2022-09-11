@@ -1,6 +1,7 @@
 import fs from 'fs';
 import nsblob from 'nsblob';
 import path from 'path';
+
 import { Options } from './options';
 
 export async function upload_buffer(buf: Buffer | string) {
@@ -9,34 +10,40 @@ export async function upload_buffer(buf: Buffer | string) {
 
 export async function createDirectoryListing(
 	dir: string,
-	opts: Options,
+	options: Options,
 	throw_errors: boolean = false
 ): Promise<string | Buffer> {
 	try {
 		const list = await fs.promises.readdir(dir);
-		let ret = Array<string>();
-		for (const i of list) {
+		const returnValue = new Array<string>();
+
+		for (const index of list) {
 			try {
-				const fullpath = path.resolve(dir, i);
-				if (fullpath.match(opts.exclude)) {
-					ret.push(`<li>${fullpath} was excluded.</li>`);
+				const fullpath = path.resolve(dir, index);
+
+				if (fullpath.match(options.exclude)) {
+					returnValue.push(`<li>${fullpath} was excluded.</li>`);
 				} else {
 					const stat = await fs.promises.stat(fullpath);
-					const hash = await upload(fullpath, opts, true);
+					const hash = await upload(fullpath, options, true);
 					const parts = path.parse(fullpath);
 
 					if (stat.isDirectory()) {
-						ret.push(
-							`<li><a href="/${hash}/${parts.name}.html">${i}/</a></li>`
+						returnValue.push(
+							`<li><a href="/${hash}/${parts.name}.html">${index}/</a></li>`
 						);
 					} else if (stat.isFile()) {
-						ret.push(`<li><a href="/${hash}/${i}">${i}</a></li>`);
+						returnValue.push(
+							`<li><a href="/${hash}/${index}">${index}</a></li>`
+						);
 					} else {
-						ret.push(`<li>${i} is not a file or directory.`);
+						returnValue.push(
+							`<li>${index} is not a file or directory.`
+						);
 					}
 				}
-			} catch (error) {
-				ret.push(`<li>${i} was inaccessible.</li>`);
+			} catch {
+				returnValue.push(`<li>${index} was inaccessible.</li>`);
 			}
 		}
 
@@ -44,7 +51,7 @@ export async function createDirectoryListing(
 			`<h1>Index of ${path.basename(dir)}</h1>`,
 			'',
 			'<ul>',
-			...ret.map((li) => `\t${li}`),
+			...returnValue.map((li) => `\t${li}`),
 			'</ul>',
 			'',
 		].join('\n');
@@ -59,18 +66,20 @@ export async function createDirectoryListing(
 
 export async function upload_logic(
 	file: string,
-	opts: Options,
+	options: Options,
 	throw_errors: boolean = false
 ): Promise<string | Buffer> {
 	try {
-		if (file.match(opts.exclude)) {
+		if (file.match(options.exclude)) {
 			return `${file} was excluded.`;
 		}
+
 		const stat = await fs.promises.stat(file);
+
 		if (stat.isFile()) {
 			return fs.promises.readFile(file);
 		} else if (stat.isDirectory()) {
-			return createDirectoryListing(file, opts, throw_errors);
+			return createDirectoryListing(file, options, throw_errors);
 		} else {
 			return `${file} is not readable.`;
 		}
@@ -85,8 +94,8 @@ export async function upload_logic(
 
 export async function upload(
 	file: string,
-	opts: Options,
+	options: Options,
 	throw_errors: boolean = false
 ) {
-	return upload_buffer(await upload_logic(file, opts, throw_errors));
+	return upload_buffer(await upload_logic(file, options, throw_errors));
 }
