@@ -2,10 +2,9 @@
 
 import argv from '@prokopschield/argv';
 import fs from 'fs';
-import nsblob from 'nsblob';
 import path from 'path';
 
-import { download, upload } from '.';
+import { download, nsblob, upload } from '.';
 
 async function main() {
 	const exclude = new RegExp(
