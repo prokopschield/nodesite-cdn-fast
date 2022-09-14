@@ -1,7 +1,7 @@
 import fs from 'fs';
-import nsblob from 'nsblob';
 import path from 'path';
 
+import nsblob from './nsblob';
 import { Options } from './options';
 
 export async function upload_buffer(buf: Buffer | string) {
