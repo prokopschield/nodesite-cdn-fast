@@ -3,6 +3,7 @@
 	"version": "0.1.3",
 	"main": "lib/index.js",
 	"bin": {
+		"nodesite-cdn-fast": "lib/cli.js",
 		"nodesite-fast-cdn": "lib/cli.js"
 	},
 	"author": "Prokop Schield",
@@ -12,7 +13,7 @@
 		"doge-config": "^0.3.20",
 		"nodesite.eu-core": "^1.3.1",
 		"serial-async-io": "^0.3.2",
-		"socket.io-client": "^3.1.3"
+		"socket.io-client": "^4.6.1"
 	},
 	"devDependencies": {
 		"@types/blake2": "^4.0.1",
